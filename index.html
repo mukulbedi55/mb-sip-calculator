@@ -1,152 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MB SIP Calculator</title>
-
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#f5f7fa;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-padding:20px;
-}
-
-.container{
-background:#fff;
-width:100%;
-max-width:400px;
-padding:25px;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,.1);
-}
-
-h2{
-text-align:center;
-color:#0B3C5D;
-margin-bottom:20px;
-}
-
-label{
-display:block;
-margin-top:15px;
-margin-bottom:5px;
-font-weight:bold;
-}
-
-input{
-width:100%;
-padding:10px;
-border:1px solid #ccc;
-border-radius:8px;
-font-size:16px;
-}
-
-button{
-width:100%;
-padding:12px;
-margin-top:20px;
-background:#0B3C5D;
-color:white;
-font-size:16px;
-border:none;
-border-radius:8px;
-cursor:pointer;
-}
-
-button:hover{
-background:#082a42;
-}
-
-.result{
-margin-top:20px;
-padding:15px;
-background:#eef4ff;
-border-radius:10px;
-}
-
-.result p{
-margin:8px 0;
-font-size:16px;
-}
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<h2>📈 MB SIP Calculator</h2>
-
-<label>Monthly Investment (₹)</label>
-<input type="number" id="sip" value="5000">
-
-<label>Expected Annual Return (%)</label>
-<input type="number" id="rate" value="12">
-
-<label>Investment Period (Years)</label>
-<input type="number" id="years" value="20">
-
-<button onclick="calculateSIP()">Calculate</button>
-
-<div class="result">
-
-<p><strong>Total Investment:</strong> <span id="investment"></span></p>
-
-<p><strong>Estimated Returns:</strong> <span id="returns"></span></p>
-
-<p><strong>Total Value:</strong> <span id="total"></span></p>
-
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MB Smart SIP Calculator</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head><body>
+<div class="sidebar"><h2>MB Finance</h2><ul><li>SIP ✔</li><li>SWP (Soon)</li><li>FD (Soon)</li><li>RD (Soon)</li><li>Loan EMI (Soon)</li></ul></div>
+<div class="main"><h1>MB Smart SIP Calculator</h1>
+<label>Monthly SIP</label><input id="sip" type="number" value="5000">
+<label>Return %</label><input id="rate" type="number" value="12">
+<label>Years</label><input id="years" type="number" value="20">
+<button onclick="calculate()">Calculate</button>
+<div class="card">
+<p>Investment: <span id="inv"></span></p>
+<p>Returns: <span id="ret"></span></p>
+<p>Total: <span id="tot"></span></p>
 </div>
-
+<canvas id="c"></canvas>
 </div>
-
-<script>
-
-function money(value){
-return "₹"+Math.round(value).toLocaleString("en-IN");
-}
-
-function calculateSIP(){
-
-let P=Number(document.getElementById("sip").value);
-
-let annual=Number(document.getElementById("rate").value);
-
-let years=Number(document.getElementById("years").value);
-
-let r=annual/12/100;
-
-let n=years*12;
-
-let FV=P*((Math.pow(1+r,n)-1)/r)*(1+r);
-
-let invest=P*n;
-
-let gain=FV-invest;
-
-document.getElementById("investment").innerHTML=money(invest);
-
-document.getElementById("returns").innerHTML=money(gain);
-
-document.getElementById("total").innerHTML=money(FV);
-
-}
-
-calculateSIP();
-
-</script>
-
-</body>
-</html>
+<script src="script.js"></script></body></html>

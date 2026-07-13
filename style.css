@@ -1,0 +1,6 @@
+body{margin:0;font-family:Arial;display:flex;background:#f4f6f9}
+.sidebar{width:220px;background:#0B3C5D;color:#fff;padding:20px;height:100vh}
+.sidebar ul{list-style:none;padding:0}.sidebar li{padding:10px 0}
+.main{flex:1;padding:30px}input,button{display:block;width:300px;padding:10px;margin:10px 0}
+button{background:#0B3C5D;color:#fff;border:0} .card{background:#fff;padding:15px;border-radius:8px;margin:20px 0;max-width:350px}
+canvas{max-width:350px}
